@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+# AnimalAid Inventory
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple, interactive React application for a local animal shelter to manage their donation inventory. It's a user-friendly tool to accurately record and track the inflow of donations.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [App Functionality](#app-functionality)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+  - [1. Clone the Repository](#1-clone-the-repository)
+  - [2. Navigate to the Project Directory](#2-navigate-to-the-project-directory)
+  - [3. Install Dependencies](#3-install-dependencies)
+  - [4. Run the Application](#4-run-the-application)
+- [License](#license)
+- [Contact](#contact)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## App Functionality
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The app allows shelter staff to:
 
-### `npm test`
+- **Add new donations:** Record details such as item name, quantity, donor, and date received.
+- **View inventory:** See a list of all donated items, filter by category, and check current stock levels.
+- **Edit or remove donations:** Update information or delete entries as needed.
+- **Track donation history:** Review past donations for reporting and transparency.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+All data is managed locally for simplicity and privacy.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **React:** JavaScript library for building user interfaces.
+- **Create React App:** Tool for setting up React projects.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Project Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+my-react-portfolio-app/
+├── public/
+│   └── index.html        # Main HTML file
+├── src/
+│   ├── App.js            # Main React component
+│   └── index.js          # Entry point
+├── .gitignore            # Git ignore rules
+├── package.json          # Project metadata & dependencies
+├── package-lock.json     # Dependency versions
+└── README.md             # Project documentation
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Prerequisites
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Node.js** (LTS recommended): [Download](https://nodejs.org/)
+- **Git:** [Download](https://git-scm.com/downloads)
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Getting Started
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 1. Clone the Repository
 
-### Code Splitting
+```bash
+git clone https://github.com/patelkvraj/animal-aid-inventory-react-app.git
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 2. Navigate to the Project Directory
 
-### Analyzing the Bundle Size
+```bash
+cd animal-aid-inventory-react-app
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 3. Install Dependencies
 
-### Making a Progressive Web App
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 4. Run the Application
 
-### Advanced Configuration
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Starts the development server.
+- Opens [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## License
 
-### `npm run build` fails to minify
+Licensed under the MIT License.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Contact
+
+Questions or feedback? Reach out on GitHub: [@patelkvraj](https://github.com/patelkvraj)
