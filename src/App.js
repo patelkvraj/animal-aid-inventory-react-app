@@ -1,5 +1,11 @@
+import DonationForm from "./DonationForm.js";
+
 function App() {
-  return <div>Namaste, World!</div>;
+  return (
+    <div>
+      <DonationForm />
+    </div>
+  );
 }
 
 export default App;
