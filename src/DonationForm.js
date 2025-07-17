@@ -20,6 +20,21 @@ function DonationForm() {
           onChange={handleChange}
         />
       </label>
+
+      <label>
+        Type of Donation:
+        <select
+          name="donationType"
+          value={inputs.donationType || "Money"}
+          onChange={handleChange}
+        >
+          <option value="Money">Money</option>
+          <option value="Food">Food</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+
       <label>
         Date:
         <input
