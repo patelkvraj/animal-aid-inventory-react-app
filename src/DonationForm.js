@@ -1,7 +1,13 @@
 import { useState } from "react";
 
 function DonationForm() {
-  const [name, setName] = useState("");
+  const [inputs, setInputs] = useState({});
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs((values) => ({ ...values, [name]: value }));
+  };
 
   return (
     <form>
@@ -9,8 +15,18 @@ function DonationForm() {
         Full Name:
         <input
           type="text"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
+          name="username"
+          value={inputs.username || ""}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Date:
+        <input
+          type="date"
+          name="date"
+          value={inputs.date || ""}
+          onChange={handleChange}
         />
       </label>
     </form>
