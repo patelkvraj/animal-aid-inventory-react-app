@@ -36,6 +36,26 @@ function DonationForm() {
       </label>
 
       <label>
+        Amount:
+        <input
+          type="number"
+          name="amount"
+          value={inputs.amount || "100"}
+          onChange={handleChange}
+        />
+      </label>
+
+      <label>
+        Quantity:
+        <input
+          type="number"
+          name="quantity"
+          value={inputs.quantity || "1"}
+          onChange={handleChange}
+        />
+      </label>
+
+      <label>
         Date:
         <input
           type="date"
