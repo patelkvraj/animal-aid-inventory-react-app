@@ -1,7 +1,9 @@
 import { useState } from "react";
 
 function DonationForm() {
-  const [inputs, setInputs] = useState({});
+  const [inputs, setInputs] = useState({
+    donationType: "Money", // Set default value
+  });
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -35,25 +37,38 @@ function DonationForm() {
         </select>
       </label>
 
-      <label>
-        Amount:
-        <input
-          type="number"
-          name="amount"
-          value={inputs.amount || "100"}
-          onChange={handleChange}
-        />
-      </label>
-
-      <label>
-        Quantity:
-        <input
-          type="number"
-          name="quantity"
-          value={inputs.quantity || "1"}
-          onChange={handleChange}
-        />
-      </label>
+      {/* Conditionally render Amount, Quantity, or Description based on donationType */}
+      {inputs.donationType === "Money" ? (
+        <label>
+          Amount:
+          <input
+            type="number"
+            name="amount"
+            value={inputs.amount || "100"}
+            onChange={handleChange}
+          />
+        </label>
+      ) : inputs.donationType === "Other" ? (
+        <label>
+          Description:
+          <input
+            type="text"
+            name="description"
+            value={inputs.description || ""}
+            onChange={handleChange}
+          />
+        </label>
+      ) : (
+        <label>
+          Quantity:
+          <input
+            type="number"
+            name="quantity"
+            value={inputs.quantity || "1"}
+            onChange={handleChange}
+          />
+        </label>
+      )}
 
       <label>
         Date:
