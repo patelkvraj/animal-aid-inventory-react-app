@@ -1,9 +1,9 @@
-import DonationForm from "./DonationForm.js";
+import Donation from "./Donation.js";
 
 function App() {
   return (
     <div>
-      <DonationForm />
+      <Donation />
     </div>
   );
 }
