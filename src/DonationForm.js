@@ -22,7 +22,6 @@ function DonationForm() {
           onChange={handleChange}
         />
       </label>
-
       <label>
         Type of Donation:
         <select
@@ -36,7 +35,6 @@ function DonationForm() {
           <option value="Other">Other</option>
         </select>
       </label>
-
       {/* Conditionally render Amount, Quantity, or Description based on donationType */}
       {inputs.donationType === "Money" ? (
         <label>
@@ -69,7 +67,6 @@ function DonationForm() {
           />
         </label>
       )}
-
       <label>
         Date:
         <input
