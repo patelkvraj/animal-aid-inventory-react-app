@@ -14,6 +14,7 @@ function DonationForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     alert("Thank you so much for your generous donation!");
+    setInputs({ donationType: "Money" }); // clear the input fields to default
   };
 
   return (
