@@ -11,8 +11,13 @@ function DonationForm() {
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert("Thank you so much for your generous donation!");
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>
         Full Name:
         <input
@@ -76,6 +81,7 @@ function DonationForm() {
           onChange={handleChange}
         />
       </label>
+      <input type="submit" />
     </form>
   );
 }
