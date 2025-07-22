@@ -14,6 +14,8 @@ function Donation() {
     <>
       <h1>AnimalAid Donations</h1>
       <DonationForm onAddDonation={addDonation} />
+      <DonationList donations={donations} />
+      <DonationStats donations={donations} />
     </>
   );
 }
