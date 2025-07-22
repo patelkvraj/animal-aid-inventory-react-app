@@ -1,4 +1,5 @@
 import DonationForm from "./DonationForm.js";
+import DonationStats from "./DonationStats.js";
 import { useState } from "react";
 
 function Donation() {
@@ -12,6 +13,7 @@ function Donation() {
     <>
       <h1>AnimalAid Donations</h1>
       <DonationForm onAddDonation={addDonation} />
+      <DonationStats donations={donations} />
     </>
   );
 }
