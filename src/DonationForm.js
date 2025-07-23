@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function DonationForm(props) {
+function DonationForm({ onAddDonation, donationToEdit }) {
   const [inputs, setInputs] = useState({
     donationType: "Money", // Set default value
   });
@@ -13,7 +13,7 @@ function DonationForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.onAddDonation(inputs); // add a new donation to the list (in the parent component)
+    onAddDonation(inputs); // add a new donation to the list (in the parent component)
     alert("Thank you so much for your generous donation!");
     setInputs({ donationType: "Money" }); // clear the input fields to default
   };

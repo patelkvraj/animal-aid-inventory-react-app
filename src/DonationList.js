@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function DonationList({ donations, onDeleteDonation }) {
+function DonationList({ donations, onDeleteDonation, onEditDonation }) {
   const [selectedDonationType, setSelectedDonationType] = useState("");
 
   const handleChange = (event) => {
@@ -9,6 +9,10 @@ function DonationList({ donations, onDeleteDonation }) {
 
   const handleDelete = (donationId) => {
     onDeleteDonation(donationId);
+  };
+
+  const handleEdit = (donationId) => {
+    onEditDonation(donationId);
   };
 
   if (donations.length === 0) {
@@ -67,6 +71,9 @@ function DonationList({ donations, onDeleteDonation }) {
                   <button onClick={() => handleDelete(donation.id)}>
                     Delete
                   </button>
+                </td>
+                <td>
+                  <button onClick={() => handleEdit(donation.id)}>Edit</button>
                 </td>
               </tr>
             ))}
