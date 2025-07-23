@@ -1,9 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function DonationForm({ onAddDonation, donationToEdit }) {
   const [inputs, setInputs] = useState({
     donationType: "Money", // Set default value
   });
+
+  useEffect(() => {
+    if (donationToEdit && Object.keys(donationToEdit).length > 0) {
+      // populate the form with the donation data
+      setInputs({
+        username: donationToEdit.username || "",
+        donationType: donationToEdit.donationType || "Money",
+        amount: donationToEdit.amount || Number(100),
+        quantity: donationToEdit.quantity || Number(1),
+        description: donationToEdit.description || "",
+        date: donationToEdit.date || "",
+      });
+    }
+  }, [donationToEdit]);
 
   const handleChange = (event) => {
     const name = event.target.name;
