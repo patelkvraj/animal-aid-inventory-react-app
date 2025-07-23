@@ -28,7 +28,6 @@ function DonationList({ donations }) {
         <table>
           <thead>
             <tr>
-              <th>Id</th>
               <th>Full Name</th>
               <th>
                 <label htmlFor="donation-type-drop-down">
@@ -52,9 +51,8 @@ function DonationList({ donations }) {
             </tr>
           </thead>
           <tbody>
-            {filteredDonations.map((donation, id) => (
-              <tr key={id}>
-                <td>{id + 1}</td>
+            {filteredDonations.map((donation) => (
+              <tr key={donation.id}>
                 <td>{donation.username || "Anonymous"}</td>
                 <td>{donation.donationType || "-"}</td>
                 <td>{donation.amount || donation.quantity || "-"}</td>

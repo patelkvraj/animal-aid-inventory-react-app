@@ -7,7 +7,9 @@ function Donation() {
   const [donations, setDonations] = useState([]);
 
   const addDonation = (newDonation) => {
-    setDonations([...donations, newDonation]);
+    const donationWithId = { ...newDonation, id: Date.now() }; // assign a unique id to each donation
+    setDonations([...donations, donationWithId]);
+  };
   };
 
   return (
