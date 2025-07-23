@@ -1,10 +1,14 @@
 import { useState } from "react";
 
-function DonationList({ donations }) {
+function DonationList({ donations, onDeleteDonation }) {
   const [selectedDonationType, setSelectedDonationType] = useState("");
 
   const handleChange = (event) => {
     setSelectedDonationType(event.target.value);
+  };
+
+  const handleDelete = (donationId) => {
+    onDeleteDonation(donationId);
   };
 
   if (donations.length === 0) {
@@ -48,6 +52,7 @@ function DonationList({ donations }) {
               <th>Amount/Quantity</th>
               <th>Notes</th>
               <th>Date</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -58,6 +63,11 @@ function DonationList({ donations }) {
                 <td>{donation.amount || donation.quantity || "-"}</td>
                 <td>{donation.description || "-"}</td>
                 <td>{donation.date || "-"}</td>
+                <td>
+                  <button onClick={() => handleDelete(donation.id)}>
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

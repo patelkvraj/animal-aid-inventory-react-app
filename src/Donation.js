@@ -10,13 +10,21 @@ function Donation() {
     const donationWithId = { ...newDonation, id: Date.now() }; // assign a unique id to each donation
     setDonations([...donations, donationWithId]);
   };
+
+  const handleDeleteDonation = (donationIdToRemove) => {
+    setDonations(
+      donations.filter((donation) => donation.id !== donationIdToRemove)
+    );
   };
 
   return (
     <>
       <h1>AnimalAid Donations</h1>
       <DonationForm onAddDonation={addDonation} />
-      <DonationList donations={donations} />
+      <DonationList
+        donations={donations}
+        onDeleteDonation={handleDeleteDonation}
+      />
       <DonationStats donations={donations} />
     </>
   );
