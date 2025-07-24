@@ -1,10 +1,27 @@
 function DonationStats({ donations }) {
+  const containerStyle = {
+    border: "1px solid #ccc",
+    borderRadius: "6px",
+    padding: "16px",
+    maxWidth: "350px",
+    margin: "20px auto",
+    background: "#fafafa",
+    fontFamily: "Arial, sans-serif",
+  };
+  const headingStyle = {
+    fontSize: "1.3em",
+    marginBottom: "12px",
+  };
+  const statStyle = {
+    margin: "6px 0",
+  };
+
   if (donations.length === 0) {
     return (
-      <>
-        <h2>Basic Statistics</h2>
-        <p>No donations yet.</p>
-      </>
+      <div style={containerStyle}>
+        <h2 style={headingStyle}>Basic Statistics</h2>
+        <p style={statStyle}>No donations yet.</p>
+      </div>
     );
   } else {
     const totalDonations = donations.length;
@@ -19,13 +36,13 @@ function DonationStats({ donations }) {
       .reduce((sum, donation) => sum + Number(donation.quantity || 0), 0);
 
     return (
-      <>
-        <h2>Basic Statistics</h2>
-        <p>Number of donations: {totalDonations}</p>
-        <p>Total amount donated: ${totalAmount}</p>
-        <p>Total clothes donated: {totalClothes}</p>
-        <p>Total food items donated: {totalFoodItems}</p>
-      </>
+      <div style={containerStyle}>
+        <h2 style={headingStyle}>Basic Statistics</h2>
+        <p style={statStyle}>Number of donations: {totalDonations}</p>
+        <p style={statStyle}>Total amount donated: ${totalAmount}</p>
+        <p style={statStyle}>Total clothes donated: {totalClothes}</p>
+        <p style={statStyle}>Total food items donated: {totalFoodItems}</p>
+      </div>
     );
   }
 }
