@@ -22,12 +22,14 @@ A simple, interactive React application for a local animal shelter to manage the
 
 The app allows shelter staff to:
 
-- **Add new donations:** Record details such as item name, quantity, donor, and date received.
-- **View inventory:** See a list of all donated items, filter by category, and check current stock levels.
-- **Edit or remove donations:** Update information or delete entries as needed.
-- **Track donation history:** Review past donations for reporting and transparency.
+- **Add new donations:** Record donor information, donation type (Money, Food, Clothing, Other), amounts/quantities, and dates.
+- **View donation history:** See a comprehensive table of all donations with filtering by donation type.
+- **Edit donations:** Modify existing donation records through an intuitive form interface.
+- **Delete donations:** Remove donation entries as needed.
+- **Track statistics:** View total donations, monetary amounts, and item quantities across different categories.
+- **Filter and search:** Filter donations by type (Money, Food, Clothing, Other) for better organization.
 
-All data is managed locally for simplicity and privacy.
+All data is managed locally in the browser for simplicity and privacy.
 
 ---
 
@@ -41,11 +43,15 @@ All data is managed locally for simplicity and privacy.
 ## Project Structure
 
 ```
-my-react-portfolio-app/
+animal-aid-inventory-react-app/
 ├── public/
 │   └── index.html        # Main HTML file
 ├── src/
 │   ├── App.js            # Main React component
+│   ├── Donation.js       # Main donation management component
+│   ├── DonationForm.js   # Form for adding/editing donations
+│   ├── DonationList.js   # Table view of donations with filtering
+│   ├── DonationStats.js  # Statistics and analytics component
 │   └── index.js          # Entry point
 ├── .gitignore            # Git ignore rules
 ├── package.json          # Project metadata & dependencies
