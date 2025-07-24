@@ -109,6 +109,7 @@ function DonationForm({ onAddDonation, donationToEdit }) {
             style={inputStyle}
           />
         </label>
+      ) : (
         <label style={labelStyle}>
           Quantity:
           <input
