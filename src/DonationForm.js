@@ -69,7 +69,7 @@ function DonationForm({ onAddDonation, donationToEdit }) {
           <input
             type="number"
             name="amount"
-            value={inputs.amount || "100"}
+            value={inputs.amount || ""}
             onChange={handleChange}
             required
           />
@@ -92,7 +92,7 @@ function DonationForm({ onAddDonation, donationToEdit }) {
           <input
             type="number"
             name="quantity"
-            value={inputs.quantity || "1"}
+            value={inputs.quantity || ""}
             onChange={handleChange}
             required
           />

@@ -62,11 +62,11 @@ function DonationList({ donations, onDeleteDonation, onEditDonation }) {
           <tbody>
             {filteredDonations.map((donation) => (
               <tr key={donation.id}>
-                <td>{donation.username || "Anonymous"}</td>
-                <td>{donation.donationType || "-"}</td>
+                <td>{donation.username}</td>
+                <td>{donation.donationType}</td>
                 <td>{donation.amount || donation.quantity || "-"}</td>
                 <td>{donation.description || "-"}</td>
-                <td>{donation.date || "-"}</td>
+                <td>{donation.date}</td>
                 <td>
                   <button onClick={() => handleDelete(donation.id)}>
                     Delete
