@@ -46,7 +46,7 @@ function DonationList({ donations, onDeleteDonation, onEditDonation }) {
                   value={selectedDonationType}
                   onChange={handleChange}
                 >
-                  <option value=""></option>
+                  <option value="">All</option>
                   <option value="Money">Money</option>
                   <option value="Food">Food</option>
                   <option value="Clothing">Clothing</option>
