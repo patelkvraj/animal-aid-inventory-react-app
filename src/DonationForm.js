@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 function DonationForm({ onAddDonation, donationToEdit }) {
   const [inputs, setInputs] = useState({
     donationType: "Money", // Set default value
+    date: new Date().toISOString().split("T")[0], // today's date in YYYY-MM-DD format
   });
 
   useEffect(() => {
@@ -29,7 +30,10 @@ function DonationForm({ onAddDonation, donationToEdit }) {
     event.preventDefault();
     onAddDonation(inputs); // add a new donation to the list (in the parent component)
     alert("Thank you so much for your generous donation!");
-    setInputs({ donationType: "Money" }); // clear the input fields to default
+    setInputs({
+      donationType: "Money",
+      date: new Date().toISOString().split("T")[0],
+    }); // clear the input fields to default
   };
 
   return (
@@ -93,7 +97,7 @@ function DonationForm({ onAddDonation, donationToEdit }) {
         <input
           type="date"
           name="date"
-          value={inputs.date || ""}
+          value={inputs.date || new Date().toISOString().split("T")[0]}
           onChange={handleChange}
         />
       </label>
