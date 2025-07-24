@@ -15,12 +15,48 @@ function DonationList({ donations, onDeleteDonation, onEditDonation }) {
     onEditDonation(donationId);
   };
 
+  const tableStyle = {
+    width: "100%",
+    borderCollapse: "collapse",
+    marginTop: "16px",
+    background: "#fff",
+  };
+
+  const thTdStyle = {
+    border: "1px solid #ddd",
+    padding: "8px",
+    textAlign: "left",
+  };
+
+  const thStyle = {
+    ...thTdStyle,
+    background: "#f2f2f2",
+    fontWeight: "bold",
+  };
+
+  const buttonStyle = {
+    marginRight: "6px",
+    padding: "4px 10px",
+    border: "none",
+    borderRadius: "4px",
+    cursor: "pointer",
+    background: "#1976d2",
+    color: "#fff",
+  };
+
+  const deleteButtonStyle = {
+    ...buttonStyle,
+    background: "#d32f2f",
+  };
+
   if (donations.length === 0) {
     return (
-      <>
-        <h2>Recent Donations</h2>
+      <div
+        style={{ padding: "24px", background: "#fafafa", borderRadius: "8px" }}
+      >
+        <h2 style={{ marginBottom: "12px" }}>Recent Donations</h2>
         <p>No donations yet. Be the first to donate!</p>
-      </>
+      </div>
     );
   } else {
     // Filter donations based on selectedDonationType
@@ -31,20 +67,30 @@ function DonationList({ donations, onDeleteDonation, onEditDonation }) {
       : donations;
 
     return (
-      <>
-        <h2>Recent Donations</h2>
-        <table>
+      <div
+        style={{ padding: "24px", background: "#fafafa", borderRadius: "8px" }}
+      >
+        <h2 style={{ marginBottom: "12px" }}>Recent Donations</h2>
+        <table style={tableStyle}>
           <thead>
             <tr>
-              <th>Full Name</th>
-              <th>
-                <label htmlFor="donation-type-drop-down">
+              <th style={thStyle}>Full Name</th>
+              <th style={thStyle}>
+                <label
+                  htmlFor="donation-type-drop-down"
+                  style={{ marginRight: "8px" }}
+                >
                   Type of Donation
                 </label>
                 <select
                   id="donation-type-drop-down"
                   value={selectedDonationType}
                   onChange={handleChange}
+                  style={{
+                    padding: "4px",
+                    borderRadius: "4px",
+                    border: "1px solid #ccc",
+                  }}
                 >
                   <option value="">All</option>
                   <option value="Money">Money</option>
@@ -53,33 +99,45 @@ function DonationList({ donations, onDeleteDonation, onEditDonation }) {
                   <option value="Other">Other</option>
                 </select>
               </th>
-              <th>Amount/Quantity</th>
-              <th>Notes</th>
-              <th>Date</th>
-              <th>Actions</th>
+              <th style={thStyle}>Amount/Quantity</th>
+              <th style={thStyle}>Notes</th>
+              <th style={thStyle}>Date</th>
+              <th style={thStyle} colSpan={2}>
+                Actions
+              </th>
             </tr>
           </thead>
           <tbody>
             {filteredDonations.map((donation) => (
               <tr key={donation.id}>
-                <td>{donation.username}</td>
-                <td>{donation.donationType}</td>
-                <td>{donation.amount || donation.quantity || "-"}</td>
-                <td>{donation.description || "-"}</td>
-                <td>{donation.date}</td>
-                <td>
-                  <button onClick={() => handleDelete(donation.id)}>
+                <td style={thTdStyle}>{donation.username}</td>
+                <td style={thTdStyle}>{donation.donationType}</td>
+                <td style={thTdStyle}>
+                  {donation.amount || donation.quantity || "-"}
+                </td>
+                <td style={thTdStyle}>{donation.description || "-"}</td>
+                <td style={thTdStyle}>{donation.date}</td>
+                <td style={thTdStyle}>
+                  <button
+                    style={deleteButtonStyle}
+                    onClick={() => handleDelete(donation.id)}
+                  >
                     Delete
                   </button>
                 </td>
-                <td>
-                  <button onClick={() => handleEdit(donation.id)}>Edit</button>
+                <td style={thTdStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => handleEdit(donation.id)}
+                  >
+                    Edit
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-      </>
+      </div>
     );
   }
 }
