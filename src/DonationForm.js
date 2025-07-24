@@ -45,6 +45,8 @@ function DonationForm({ onAddDonation, donationToEdit }) {
           name="username"
           value={inputs.username || ""}
           onChange={handleChange}
+          required
+          placeholder="Anonymous"
         />
       </label>
       <label>
@@ -69,6 +71,7 @@ function DonationForm({ onAddDonation, donationToEdit }) {
             name="amount"
             value={inputs.amount || "100"}
             onChange={handleChange}
+            required
           />
         </label>
       ) : inputs.donationType === "Other" ? (
@@ -79,6 +82,8 @@ function DonationForm({ onAddDonation, donationToEdit }) {
             name="description"
             value={inputs.description || ""}
             onChange={handleChange}
+            required
+            placeholder="Describe your donation"
           />
         </label>
       ) : (
@@ -89,6 +94,7 @@ function DonationForm({ onAddDonation, donationToEdit }) {
             name="quantity"
             value={inputs.quantity || "1"}
             onChange={handleChange}
+            required
           />
         </label>
       )}
