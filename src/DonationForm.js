@@ -76,6 +76,9 @@ function DonationForm({ onAddDonation, donationToEdit }) {
             value={inputs.amount || ""}
             onChange={handleChange}
             required
+            // basic validation
+            min={0}
+            step={0.01}
           />
         </label>
       ) : inputs.donationType === "Other" ? (
@@ -98,6 +101,9 @@ function DonationForm({ onAddDonation, donationToEdit }) {
             name="quantity"
             value={inputs.quantity || ""}
             onChange={handleChange}
+            // basic validation
+            min={1}
+            step={1}
             required
           />
         </label>
@@ -109,6 +115,8 @@ function DonationForm({ onAddDonation, donationToEdit }) {
           name="date"
           value={inputs.date || getTodayDate()}
           onChange={handleChange}
+          // basic validation
+          max={getTodayDate()}
         />
       </label>
       <input type="submit" />
