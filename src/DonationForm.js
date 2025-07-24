@@ -10,12 +10,12 @@ function DonationForm({ onAddDonation, donationToEdit }) {
     if (donationToEdit && Object.keys(donationToEdit).length > 0) {
       // populate the form with the donation data
       setInputs({
-        username: donationToEdit.username || "",
+        username: donationToEdit.username,
         donationType: donationToEdit.donationType || "Money",
-        amount: donationToEdit.amount || Number(100),
-        quantity: donationToEdit.quantity || Number(1),
+        amount: donationToEdit.amount || "",
+        quantity: donationToEdit.quantity || "",
         description: donationToEdit.description || "",
-        date: donationToEdit.date || "",
+        date: donationToEdit.date,
       });
     }
   }, [donationToEdit]);
