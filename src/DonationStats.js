@@ -16,7 +16,7 @@ function DonationStats({ donations }) {
       .reduce((sum, donation) => sum + Number(donation.quantity || 0), 0);
     const totalFoodItems = donations
       .filter((donation) => donation.donationType === "Food")
-      .reduce((sum, donation) => Number(donation.quantity || 0), 0);
+      .reduce((sum, donation) => sum + Number(donation.quantity || 0), 0);
 
     return (
       <>
