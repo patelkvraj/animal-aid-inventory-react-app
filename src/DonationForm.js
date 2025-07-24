@@ -40,9 +40,23 @@ function DonationForm({ onAddDonation, donationToEdit }) {
     }); // clear the input fields to default
   };
 
+  // Basic styles
+  const formStyle = {
+    maxWidth: "350px",
+    margin: "20px auto",
+    padding: "16px",
+    border: "1px solid #ccc",
+    borderRadius: "6px",
+    background: "#fafafa",
+    fontFamily: "sans-serif",
+  };
+  const labelStyle = { display: "block", margin: "12px 0 4px" };
+  const inputStyle = { width: "100%", padding: "6px", marginBottom: "8px" };
+  const buttonStyle = { padding: "8px 16px", marginTop: "10px" };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form onSubmit={handleSubmit} style={formStyle}>
+      <label style={labelStyle}>
         Full Name:
         <input
           type="text"
@@ -51,14 +65,16 @@ function DonationForm({ onAddDonation, donationToEdit }) {
           onChange={handleChange}
           required
           placeholder="Anonymous"
+          style={inputStyle}
         />
       </label>
-      <label>
+      <label style={labelStyle}>
         Type of Donation:
         <select
           name="donationType"
           value={inputs.donationType || "Money"}
           onChange={handleChange}
+          style={inputStyle}
         >
           <option value="Money">Money</option>
           <option value="Food">Food</option>
@@ -66,9 +82,8 @@ function DonationForm({ onAddDonation, donationToEdit }) {
           <option value="Other">Other</option>
         </select>
       </label>
-      {/* Conditionally render Amount, Quantity, or Description based on donationType */}
       {inputs.donationType === "Money" ? (
-        <label>
+        <label style={labelStyle}>
           Amount:
           <input
             type="number"
@@ -76,13 +91,13 @@ function DonationForm({ onAddDonation, donationToEdit }) {
             value={inputs.amount || ""}
             onChange={handleChange}
             required
-            // basic validation
             min={0}
             step={0.01}
+            style={inputStyle}
           />
         </label>
       ) : inputs.donationType === "Other" ? (
-        <label>
+        <label style={labelStyle}>
           Description:
           <input
             type="text"
@@ -91,35 +106,35 @@ function DonationForm({ onAddDonation, donationToEdit }) {
             onChange={handleChange}
             required
             placeholder="Describe your donation"
+            style={inputStyle}
           />
         </label>
-      ) : (
-        <label>
+        <label style={labelStyle}>
           Quantity:
           <input
             type="number"
             name="quantity"
             value={inputs.quantity || ""}
             onChange={handleChange}
-            // basic validation
             min={1}
             step={1}
             required
+            style={inputStyle}
           />
         </label>
       )}
-      <label>
+      <label style={labelStyle}>
         Date:
         <input
           type="date"
           name="date"
           value={inputs.date || getTodayDate()}
           onChange={handleChange}
-          // basic validation
           max={getTodayDate()}
+          style={inputStyle}
         />
       </label>
-      <input type="submit" />
+      <input type="submit" style={buttonStyle} />
     </form>
   );
 }
