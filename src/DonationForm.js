@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 
 function DonationForm({ onAddDonation, donationToEdit }) {
+  const getTodayDate = () => {
+    return new Date().toISOString().split("T")[0];
+  };
+
   const [inputs, setInputs] = useState({
     donationType: "Money", // Set default value
-    date: new Date().toISOString().split("T")[0], // today's date in YYYY-MM-DD format
+    date: getTodayDate(), // today's date in YYYY-MM-DD format
   });
 
   useEffect(() => {
@@ -103,7 +107,7 @@ function DonationForm({ onAddDonation, donationToEdit }) {
         <input
           type="date"
           name="date"
-          value={inputs.date || new Date().toISOString().split("T")[0]}
+          value={inputs.date || getTodayDate()}
           onChange={handleChange}
         />
       </label>
